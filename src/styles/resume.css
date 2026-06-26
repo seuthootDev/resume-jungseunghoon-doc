@@ -48,6 +48,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -57,6 +58,7 @@ body {
   line-height: 1.6;
   font-size: 15px;
   transition: background 0.2s, color 0.2s;
+  overflow-x: hidden;
 }
 
 .toolbar {
@@ -121,36 +123,23 @@ body {
   color: var(--ctrl-active-text);
 }
 
-.page {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 48px 40px 64px;
+.resume-scaler {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 
-@media (max-width: 640px) {
-  .toolbar {
-    padding: 10px 16px;
-  }
+.resume-document {
+  width: 900px;
+  flex-shrink: 0;
+  transform-origin: top center;
+}
 
-  .page {
-    padding: 32px 20px 48px;
-  }
-
-  .header-top {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .header-body {
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .contact-block {
-    text-align: center;
-  }
+.page {
+  width: 900px;
+  margin: 0 auto;
+  padding: 48px 40px 64px;
 }
 
 .header {
@@ -325,8 +314,14 @@ body {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
+}
+
+@media (max-width: 899px) {
+  .toolbar {
+    padding: 10px 16px;
+  }
 }
 
 .skill-group h4 {
@@ -357,7 +352,7 @@ body {
 
 .cred-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
 }
 
@@ -491,6 +486,15 @@ body {
 @media print {
   .toolbar {
     display: none;
+  }
+
+  .resume-scaler {
+    height: auto !important;
+    overflow: visible;
+  }
+
+  .resume-document {
+    transform: none !important;
   }
 
   .page {
