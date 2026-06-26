@@ -4,12 +4,12 @@ export const resumeData: ResumeData = {
   profile: {
     name: { en: 'Jung Seunghoon', ko: '정승훈' },
     subtitle: {
-      en: 'Software Developer · Full-Stack & 3D Visualization',
-      ko: '소프트웨어 개발자 · 풀스택 & 3D 시각화',
+      en: 'Software Developer · Digital Twin & Full-Stack',
+      ko: '소프트웨어 개발자 · 디지털 트윈 & 풀스택',
     },
     summary: {
-      en: 'Software developer grounded in mathematical thinking from a B.S. in Mathematics. Experienced across VTK-based 3D visualization desktop applications and React · FastAPI full-stack web development. First-hand ERP experience as an end-user shaped a deep focus on user-centric UX design. Earned 9 certifications — including Engineer Information Processing, 3× AWS Associate, and SQLD — in a short span, reflecting a commitment to continuous growth.',
-      ko: '수학 전공을 통해 다져온 논리적 사고를 바탕으로 소프트웨어 개발에 임하는 개발자입니다. VTK 기반 3D 시각화 데스크톱 애플리케이션부터 React·FastAPI 웹 풀스택 개발까지 폭넓은 경험을 보유하고 있으며, ERP 사용자 경험에서 얻은 통찰로 사용자 중심 UX 설계를 중시합니다. 단기간 내 정보처리기사, AWS 3종, SQLD 등 총 9개 자격증 취득으로 지속적인 성장을 이어가고 있습니다.',
+      en: 'Software developer grounded in mathematical thinking from a B.S. in Mathematics. Experienced across manufacturing digital twin desktop apps (PySide6/QML, QtQuick3D, URDF), PLC–robot integration web toolchains (Next.js, NestJS), and VTK-based 3D visualization. First-hand ERP experience as an end-user shaped a deep focus on user-centric UX design. Earned 9 certifications — including Engineer Information Processing, 3× AWS Associate, and SQLD — reflecting a commitment to continuous growth.',
+      ko: '수학 전공을 통해 다져온 논리적 사고를 바탕으로 소프트웨어 개발에 임하는 개발자입니다. PySide6/QML·QtQuick3D·URDF 기반 제조 디지털 트윈 데스크톱부터 Next.js·NestJS PLC–로봇 통합 웹 툴체인까지 폭넓은 경험을 보유하고 있으며, ERP 사용자 경험에서 얻은 통찰로 사용자 중심 UX 설계를 중시합니다. 정보처리기사, AWS 3종, SQLD 등 총 9개 자격증 취득으로 지속적인 성장을 이어가고 있습니다.',
     },
     photo: 'https://github.com/seuthootDev.png?size=160',
     email: 'seuthootdev@gmail.com',
@@ -36,7 +36,46 @@ export const resumeData: ResumeData = {
   },
   experience: [
     {
-      company: { en: 'Hers Co., Ltd.', ko: '(주)헤르스' },
+      company: { en: 'Codeflex Co., Ltd.', ko: '(주)코드플렉스' },
+      date: 'Oct 2025 – Present',
+      role: { en: 'Software Developer', ko: '소프트웨어 개발자' },
+      subtitle: {
+        en: 'Government-funded R&D — Manufacturing Digital Twin & PLC–Robot Integration',
+        ko: '정부 지원 R&D — 제조 디지털 트윈 & PLC–로봇 통합',
+      },
+      bullets: [
+        {
+          en: 'Developed a PySide6/QML design-time desktop app for virtual workcell configuration with QtQuick3D URDF visualization, joint control, and inverse kinematics',
+          ko: 'PySide6/QML 기반 가상 워크셀 구성 데스크톱 애플리케이션 개발 — QtQuick3D URDF 시각화, 관절 제어, 역기구학',
+        },
+        {
+          en: 'Built a workcell monitoring runtime desktop app integrating OPC UA, WebSocket, and MySQL KPI dashboards (OEE, throughput) with live 3D digital twin visualization',
+          ko: '워크셀 모니터링 런타임 데스크톱 애플리케이션 개발 — OPC UA·WebSocket·MySQL KPI 대시보드(OEE, 처리량)와 실시간 3D 디지털 트윈 시각화',
+        },
+        {
+          en: 'Supported TKC GS (Good Software) certification for the workcell monitoring application; authored user manual, installation guide, and product documentation integrated in-app',
+          ko: '워크셀 모니터링 애플리케이션 TKC GS(Good Software) 인증 획득 지원; 사용자 매뉴얼·설치 가이드 등 제품 문서 직접 작성 및 앱 내 연동',
+        },
+        {
+          en: 'Implemented data service authoring pipeline (WDF/WPF/Link → DSF XML) and migrated legacy Python UI to PySide6 + QML MVVM with VTK → QtQuick3D transition',
+          ko: '데이터 서비스 스키마 생성 파이프라인 구현(WDF/WPF/Link → DSF XML); 레거시 Python UI를 PySide6 + QML MVVM으로 이식, VTK → QtQuick3D 전환',
+        },
+        {
+          en: 'Building a web toolchain that links factory PLC logic (IEC 61131-3) with URDF robot models for digital twin workflows — PLCopen XML conversion, PLC–joint mapping, AI-assisted simulation sequence generation, and multi-platform PLC ST reverse generation',
+          ko: '공장 PLC 로직(IEC 61131-3)과 URDF 로봇 모델을 디지털 트윈 워크플로우로 연결하는 웹 툴체인 개발 — PLCopen XML 변환, PLC–관절 매핑, AI 기반 시뮬레이션 시퀀스 생성, 다중 플랫폼 PLC ST 역생성',
+        },
+        {
+          en: 'Designed bidirectional integration flow: infer PLC–URDF mappings from existing ST, generate robot motion sequences for simulation, then reverse-generate and validate PLC ST across Siemens SCL and Mitsubishi ST platforms',
+          ko: '기존 PLC ST에서 PLC–URDF 매핑을 역추론하고, 로봇 동작 시퀀스를 생성·시뮬레이션한 뒤 Siemens SCL·Mitsubishi ST로 PLC ST를 역생성·검증하는 양방향 통합 흐름 설계',
+        },
+        {
+          en: 'Built equipment-specific deterministic PLC code generation with 2-stage validation and Gemini-assisted mapping repair for production-line automation scenarios',
+          ko: '생산라인 자동화 시나리오용 장비별 결정론 PLC 코드생성 및 2단계 검증·Gemini 기반 매핑 보정 구현',
+        },
+      ],
+    },
+    {
+      company: { en: 'Herss Co., Ltd.', ko: '(주)헤르스' },
       date: 'Aug 2023 – Oct 2025',
       role: { en: 'Software Developer', ko: '소프트웨어 개발자' },
       subtitle: {
@@ -114,19 +153,23 @@ export const resumeData: ResumeData = {
   skills: [
     {
       title: 'Frontend',
-      tags: ['TypeScript', 'React', 'Tailwind CSS', 'VTK.js', 'Vite'],
+      tags: ['TypeScript', 'React', 'Next.js', 'QML', 'Tailwind CSS', 'Three.js', 'VTK.js', 'Vite'],
     },
     {
       title: 'Backend',
-      tags: ['FastAPI', 'NestJS', 'MySQL', 'MongoDB', 'Python'],
+      tags: ['NestJS', 'FastAPI', 'Python', 'MySQL', 'MongoDB', 'Gemini API'],
     },
     {
       title: 'Desktop & 3D',
-      tags: ['PySide (Qt)', 'VTK'],
+      tags: ['PySide6 (Qt)', 'QtQuick3D', 'URDF', 'VTK', 'OPC UA'],
+    },
+    {
+      title: 'Domain',
+      tags: ['Digital Twin', 'PLCopen XML', 'IEC 61131-3', 'Robotics'],
     },
     {
       title: 'DevOps & Tools',
-      tags: ['AWS', 'Docker', 'Nginx', 'Git', 'GitHub', 'Vercel', 'n8n'],
+      tags: ['AWS', 'Docker', 'Nginx', 'Git', 'GitHub', 'Vercel', 'Render', 'n8n'],
     },
   ],
   education: [
@@ -265,7 +308,7 @@ export const resumeData: ResumeData = {
         en: 'Korean Red Cross Blood Services',
         ko: '대한적십자사혈액관리본부',
       },
-      hours: { en: '78 times · 312 hrs', ko: '78회 · 312시간' },
+      hours: { en: '82 times · 328 hrs', ko: '82회 · 328시간' },
     },
     {
       name: { en: 'Daily Living Support', ko: '생활지원 봉사' },
