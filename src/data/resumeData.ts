@@ -32,16 +32,41 @@ export const resumeData: ResumeData = {
     education: { en: 'Education', ko: '교육' },
     credentials: { en: 'Credentials', ko: '자격증' },
     language: { en: 'Language', ko: '어학' },
+    languageLevel: { en: 'Level', ko: '레벨' },
+    languageCert: { en: 'Certification', ko: '인증 성적' },
     community: { en: 'Community', ko: '봉사활동' },
   },
   experience: [
     {
-      company: { en: 'Codeflex Co., Ltd.', ko: '(주)코드플렉스' },
-      date: 'Oct 2025 – Present',
+      company: { en: 'F4GE Co., Ltd.', ko: '(주)F4GE' },
+      date: 'Jun 2026 – Present',
       role: { en: 'Software Developer', ko: '소프트웨어 개발자' },
       subtitle: {
-        en: 'Government-funded R&D — Manufacturing Digital Twin & PLC–Robot Integration',
-        ko: '정부 지원 R&D — 제조 디지털 트윈 & PLC–로봇 통합',
+        en: 'Government-funded R&D — PLC–Robot Integration',
+        ko: '정부 지원 R&D — PLC–로봇 통합',
+      },
+      bullets: [
+        {
+          en: 'Building a web toolchain that links factory PLC logic (IEC 61131-3) with URDF robot models for digital twin workflows — PLCopen XML conversion, PLC–joint mapping, AI-assisted simulation sequence generation, and multi-platform PLC ST reverse generation',
+          ko: '공장 PLC 로직(IEC 61131-3)과 URDF 로봇 모델을 디지털 트윈 워크플로우로 연결하는 웹 툴체인 개발 — PLCopen XML 변환, PLC–관절 매핑, AI 기반 시뮬레이션 시퀀스 생성, 다중 플랫폼 PLC ST 역생성',
+        },
+        {
+          en: 'Designed bidirectional integration flow: infer PLC–URDF mappings from existing ST, generate robot motion sequences for simulation, then reverse-generate and validate PLC ST across Siemens SCL and Mitsubishi ST platforms',
+          ko: '기존 PLC ST에서 PLC–URDF 매핑을 역추론하고, 로봇 동작 시퀀스를 생성·시뮬레이션한 뒤 Siemens SCL·Mitsubishi ST로 PLC ST를 역생성·검증하는 양방향 통합 흐름 설계',
+        },
+        {
+          en: 'Built equipment-specific deterministic PLC code generation with 2-stage validation and Gemini-assisted mapping repair for production-line automation scenarios',
+          ko: '생산라인 자동화 시나리오용 장비별 결정론 PLC 코드생성 및 2단계 검증·Gemini 기반 매핑 보정 구현',
+        },
+      ],
+    },
+    {
+      company: { en: 'Codeflex Co., Ltd.', ko: '(주)코드플렉스' },
+      date: 'Oct 2025 – May 2026',
+      role: { en: 'Software Developer', ko: '소프트웨어 개발자' },
+      subtitle: {
+        en: 'Government-funded R&D — Manufacturing Digital Twin',
+        ko: '정부 지원 R&D — 제조 디지털 트윈',
       },
       bullets: [
         {
@@ -59,18 +84,6 @@ export const resumeData: ResumeData = {
         {
           en: 'Implemented data service authoring pipeline (WDF/WPF/Link → DSF XML) and migrated legacy Python UI to PySide6 + QML MVVM with VTK → QtQuick3D transition',
           ko: '데이터 서비스 스키마 생성 파이프라인 구현(WDF/WPF/Link → DSF XML); 레거시 Python UI를 PySide6 + QML MVVM으로 이식, VTK → QtQuick3D 전환',
-        },
-        {
-          en: 'Building a web toolchain that links factory PLC logic (IEC 61131-3) with URDF robot models for digital twin workflows — PLCopen XML conversion, PLC–joint mapping, AI-assisted simulation sequence generation, and multi-platform PLC ST reverse generation',
-          ko: '공장 PLC 로직(IEC 61131-3)과 URDF 로봇 모델을 디지털 트윈 워크플로우로 연결하는 웹 툴체인 개발 — PLCopen XML 변환, PLC–관절 매핑, AI 기반 시뮬레이션 시퀀스 생성, 다중 플랫폼 PLC ST 역생성',
-        },
-        {
-          en: 'Designed bidirectional integration flow: infer PLC–URDF mappings from existing ST, generate robot motion sequences for simulation, then reverse-generate and validate PLC ST across Siemens SCL and Mitsubishi ST platforms',
-          ko: '기존 PLC ST에서 PLC–URDF 매핑을 역추론하고, 로봇 동작 시퀀스를 생성·시뮬레이션한 뒤 Siemens SCL·Mitsubishi ST로 PLC ST를 역생성·검증하는 양방향 통합 흐름 설계',
-        },
-        {
-          en: 'Built equipment-specific deterministic PLC code generation with 2-stage validation and Gemini-assisted mapping repair for production-line automation scenarios',
-          ko: '생산라인 자동화 시나리오용 장비별 결정론 PLC 코드생성 및 2단계 검증·Gemini 기반 매핑 보정 구현',
         },
       ],
     },
@@ -192,6 +205,8 @@ export const resumeData: ResumeData = {
       school: {
         en: 'Yonsei University, Mirae Campus',
         ko: '연세대학교 미래캠퍼스',
+        // en: 'Yonsei University',
+        // ko: '연세대학교',        
       },
       major: { en: 'B.S. in Mathematics', ko: '수학과 학사' },
       date: 'Mar 2015 – Feb 2019',
@@ -202,8 +217,8 @@ export const resumeData: ResumeData = {
     },
     {
       school: {
-        en: 'Hi-Media Academy, Guri Campus',
-        ko: '하이미디어 학원 구리캠퍼스',
+        en: 'Hi-Media Academy',
+        ko: '하이미디어 학원',
       },
       major: {
         en: 'Java Web Developer Full-Stack Bootcamp',
@@ -293,12 +308,16 @@ export const resumeData: ResumeData = {
   languages: [
     {
       name: { en: 'Korean', ko: '한국어' },
-      badge: { en: 'Native', ko: '원어민' },
+      level: { en: 'Native', ko: '원어민' },
     },
     {
       name: { en: 'English', ko: '영어' },
-      badge: 'OPIc IH',
-      detail: 'ACTFL · 2025.03 – 2027.03 · #BBUL-1R2D-G843-U8TL-F8AD',
+      level: 'OPIc IH',
+      certification: 'ACTFL · 2025.03 – 2027.03 · #BBUL-1R2D-G843-U8TL-F8AD',
+    },
+    {
+      name: { en: 'Japanese', ko: '일본어' },
+      level: 'N3',
     },
   ],
   community: [

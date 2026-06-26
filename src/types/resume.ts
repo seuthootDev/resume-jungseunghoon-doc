@@ -34,8 +34,8 @@ export interface CredentialItem {
 
 export interface LanguageItem {
   name: LocalizedText;
-  badge: LocalizedText | string;
-  detail?: string;
+  level: LocalizedText | string;
+  certification?: string;
 }
 
 export interface CommunityItem {
@@ -60,6 +60,8 @@ export interface ResumeData {
     education: LocalizedText;
     credentials: LocalizedText;
     language: LocalizedText;
+    languageLevel: LocalizedText;
+    languageCert: LocalizedText;
     community: LocalizedText;
   };
   experience: ExperienceItem[];

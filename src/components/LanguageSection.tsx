@@ -11,15 +11,26 @@ export function LanguageSection() {
       <h2 className="section-title">
         <T value={sections.language} />
       </h2>
-      {languages.map((item) => (
-        <div className="lang-row" key={item.name.en}>
-          <span className="lang-name">
-            <T value={item.name} />
+      <div className="lang-table">
+        <div className="lang-row lang-header">
+          <span className="lang-name" aria-hidden="true" />
+          <span className="lang-col-label">
+            <T value={sections.languageLevel} />
           </span>
-          <span className="lang-badge">{localized(item.badge, lang)}</span>
-          {item.detail && <span className="lang-detail">{item.detail}</span>}
+          <span className="lang-col-label">
+            <T value={sections.languageCert} />
+          </span>
         </div>
-      ))}
+        {languages.map((item) => (
+          <div className="lang-row" key={item.name.en}>
+            <span className="lang-name">
+              <T value={item.name} />
+            </span>
+            <span className="lang-level">{localized(item.level, lang)}</span>
+            <span className="lang-cert">{item.certification ?? ''}</span>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }

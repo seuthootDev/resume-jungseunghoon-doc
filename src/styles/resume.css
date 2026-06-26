@@ -423,34 +423,52 @@ body {
   line-height: 1.65;
 }
 
-.lang-row {
+.lang-table {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lang-row {
+  display: grid;
+  grid-template-columns: 80px 120px 1fr;
   gap: 16px;
-  margin-bottom: 10px;
-  flex-wrap: wrap;
+  align-items: center;
+}
+
+.lang-header {
+  margin-bottom: 2px;
+}
+
+.lang-col-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
 
 .lang-name {
   font-size: 14px;
   font-weight: 600;
   color: var(--text);
-  min-width: 80px;
 }
 
-.lang-badge {
+.lang-level {
   background: var(--navy);
   color: var(--bg);
   font-size: 12px;
   font-weight: 700;
   padding: 2px 10px;
   border-radius: 3px;
+  justify-self: start;
   transition: background 0.2s, color 0.2s;
 }
 
-.lang-detail {
+.lang-cert {
   font-size: 12px;
   color: var(--text-muted);
+  line-height: 1.5;
 }
 
 .vol-item {
