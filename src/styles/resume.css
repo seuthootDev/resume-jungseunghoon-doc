@@ -124,17 +124,25 @@ body {
   color: var(--ctrl-active-text);
 }
 
-.resume-scaler {
+.resume-viewport {
   width: 100%;
-  overflow: hidden;
   display: flex;
   justify-content: center;
 }
 
+.resume-scale-box {
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
 .resume-document {
   width: 900px;
-  flex-shrink: 0;
-  transform-origin: top center;
+}
+
+@media (max-width: 899px) {
+  .toolbar {
+    padding: 10px 16px;
+  }
 }
 
 .page {
@@ -319,12 +327,6 @@ body {
   gap: 16px;
 }
 
-@media (max-width: 899px) {
-  .toolbar {
-    padding: 10px 16px;
-  }
-}
-
 .skill-group h4 {
   font-size: 11px;
   font-weight: 700;
@@ -489,13 +491,15 @@ body {
     display: none;
   }
 
-  .resume-scaler {
+  .resume-scale-box {
+    width: auto !important;
     height: auto !important;
     overflow: visible;
   }
 
   .resume-document {
     transform: none !important;
+    transform-origin: unset !important;
   }
 
   .page {

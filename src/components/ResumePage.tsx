@@ -6,24 +6,26 @@ import { EducationSection } from './EducationSection';
 import { CredentialsSection } from './CredentialsSection';
 import { LanguageSection } from './LanguageSection';
 import { CommunitySection } from './CommunitySection';
-import { useDocumentScale } from '../hooks/useDocumentScale';
+import { useResumeScale } from '../hooks/useResumeScale';
 
 export function ResumePage() {
-  const { scalerRef, documentRef } = useDocumentScale();
+  const { scaleBoxRef, documentRef } = useResumeScale();
 
   return (
     <>
       <Toolbar />
-      <div ref={scalerRef} className="resume-scaler">
-        <div ref={documentRef} className="resume-document">
-          <div className="page">
-            <Header />
-            <ExperienceSection />
-            <SkillsSection />
-            <EducationSection />
-            <CredentialsSection />
-            <LanguageSection />
-            <CommunitySection />
+      <div className="resume-viewport">
+        <div ref={scaleBoxRef} className="resume-scale-box">
+          <div ref={documentRef} className="resume-document">
+            <div className="page">
+              <Header />
+              <ExperienceSection />
+              <SkillsSection />
+              <EducationSection />
+              <CredentialsSection />
+              <LanguageSection />
+              <CommunitySection />
+            </div>
           </div>
         </div>
       </div>
