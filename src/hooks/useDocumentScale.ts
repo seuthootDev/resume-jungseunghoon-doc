@@ -1,43 +1,71 @@
-import { useEffect, useRef, useState } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 
 export const DOCUMENT_WIDTH = 900;
 const VIEWPORT_PADDING = 16;
 
 export function useDocumentScale() {
+  const scalerRef = useRef<HTMLDivElement>(null);
   const documentRef = useRef<HTMLDivElement>(null);
-  const [scale, setScale] = useState(1);
-  const [scaledHeight, setScaledHeight] = useState<number | undefined>();
 
-  useEffect(() => {
-    const element = documentRef.current;
-    if (!element) return;
+  useLayoutEffect(() => {
+    const documentEl = documentRef.current;
+    const scalerEl = scalerRef.current;
+    if (!documentEl || !scalerEl) return;
 
-    const update = () => {
+    let frameId = 0;
+    let lastScale = -1;
+    let lastHeight = -1;
+
+    const apply = () => {
       const viewportWidth = window.innerWidth;
       const availableWidth = Math.max(
         viewportWidth - VIEWPORT_PADDING * 2,
         0,
       );
-      const nextScale =
+      const scale =
         viewportWidth < DOCUMENT_WIDTH
           ? Math.min(1, availableWidth / DOCUMENT_WIDTH)
           : 1;
 
-      setScale(nextScale);
-      setScaledHeight(element.offsetHeight * nextScale);
+      if (scale < 1) {
+        const height = documentEl.offsetHeight * scale;
+
+        if (scale !== lastScale) {
+          documentEl.style.transform = `scale(${scale})`;
+          lastScale = scale;
+        }
+
+        if (Math.abs(height - lastHeight) > 0.5) {
+          scalerEl.style.height = `${height}px`;
+          lastHeight = height;
+        }
+      } else {
+        if (lastScale !== 1) {
+          documentEl.style.transform = '';
+          scalerEl.style.height = '';
+          lastScale = 1;
+          lastHeight = -1;
+        }
+      }
     };
 
-    update();
+    const schedule = () => {
+      cancelAnimationFrame(frameId);
+      frameId = requestAnimationFrame(apply);
+    };
 
-    const resizeObserver = new ResizeObserver(update);
-    resizeObserver.observe(element);
-    window.addEventListener('resize', update);
+    schedule();
+
+    const resizeObserver = new ResizeObserver(schedule);
+    resizeObserver.observe(documentEl);
+    window.addEventListener('resize', schedule);
 
     return () => {
+      cancelAnimationFrame(frameId);
       resizeObserver.disconnect();
-      window.removeEventListener('resize', update);
+      window.removeEventListener('resize', schedule);
     };
   }, []);
 
-  return { documentRef, scale, scaledHeight };
+  return { scalerRef, documentRef };
 }

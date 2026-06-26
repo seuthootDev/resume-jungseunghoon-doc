@@ -9,25 +9,13 @@ import { CommunitySection } from './CommunitySection';
 import { useDocumentScale } from '../hooks/useDocumentScale';
 
 export function ResumePage() {
-  const { documentRef, scale, scaledHeight } = useDocumentScale();
-  const isScaled = scale < 1;
+  const { scalerRef, documentRef } = useDocumentScale();
 
   return (
     <>
       <Toolbar />
-      <div
-        className="resume-scaler"
-        style={isScaled && scaledHeight ? { height: scaledHeight } : undefined}
-      >
-        <div
-          ref={documentRef}
-          className="resume-document"
-          style={
-            isScaled
-              ? { transform: `scale(${scale})` }
-              : undefined
-          }
-        >
+      <div ref={scalerRef} className="resume-scaler">
+        <div ref={documentRef} className="resume-document">
           <div className="page">
             <Header />
             <ExperienceSection />
