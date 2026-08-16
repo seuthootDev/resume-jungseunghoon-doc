@@ -1,6 +1,5 @@
 import { useLayoutEffect, useRef } from 'react';
 
-const DOCUMENT_WIDTH = 900;
 const VIEWPORT_PADDING = 16;
 
 export function useResumeScale() {
@@ -18,20 +17,23 @@ export function useResumeScale() {
     let lastHeight = -1;
 
     const apply = () => {
+      const documentWidth = documentEl.offsetWidth;
+      if (documentWidth === 0) return;
+
       const viewportWidth = window.innerWidth;
       const availableWidth = Math.max(
         viewportWidth - VIEWPORT_PADDING * 2,
         0,
       );
       const scale =
-        viewportWidth < DOCUMENT_WIDTH
-          ? Math.min(1, availableWidth / DOCUMENT_WIDTH)
+        viewportWidth < documentWidth
+          ? Math.min(1, availableWidth / documentWidth)
           : 1;
 
       const contentHeight = documentEl.offsetHeight;
 
       if (scale < 1) {
-        const boxWidth = DOCUMENT_WIDTH * scale;
+        const boxWidth = documentWidth * scale;
         const boxHeight = contentHeight > 0 ? contentHeight * scale : 0;
 
         if (scale !== lastScale) {

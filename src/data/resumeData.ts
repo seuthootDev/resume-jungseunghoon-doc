@@ -23,7 +23,7 @@ export const resumeData: ResumeData = {
         label: 'LinkedIn',
         href: 'https://linkedin.com/in/seunghoon-jung-38b270335',
       },
-      { label: 'Blog', href: 'https://seuthootdev.tistory.com' },
+      // { label: 'Blog', href: 'https://seuthootdev.tistory.com' },
     ],
   },
   sections: {
@@ -38,12 +38,12 @@ export const resumeData: ResumeData = {
   },
   experience: [
     {
-      company: { en: 'F4GE Co., Ltd.', ko: '(주)F4GE' },
-      date: 'Jun 2026 – Present',
+      company: { en: 'Codeflex Co., Ltd.', ko: '(주)코드플렉스' },
+      date: 'Oct 2025 – Present',
       role: { en: 'Software Developer', ko: '소프트웨어 개발자' },
       subtitle: {
-        en: 'Government-funded R&D — PLC–Robot Integration',
-        ko: '정부 지원 R&D — PLC–로봇 통합',
+        en: 'Government-funded R&D — Manufacturing Digital Twin & PLC–Robot Integration',
+        ko: '정부 지원 R&D — 제조 디지털 트윈 & PLC–로봇 통합',
       },
       bullets: [
         {
@@ -58,17 +58,6 @@ export const resumeData: ResumeData = {
           en: 'Built equipment-specific deterministic PLC code generation with 2-stage validation and Gemini-assisted mapping repair for production-line automation scenarios',
           ko: '생산라인 자동화 시나리오용 장비별 결정론 PLC 코드생성 및 2단계 검증·Gemini 기반 매핑 보정 구현',
         },
-      ],
-    },
-    {
-      company: { en: 'Codeflex Co., Ltd.', ko: '(주)코드플렉스' },
-      date: 'Oct 2025 – May 2026',
-      role: { en: 'Software Developer', ko: '소프트웨어 개발자' },
-      subtitle: {
-        en: 'Government-funded R&D — Manufacturing Digital Twin',
-        ko: '정부 지원 R&D — 제조 디지털 트윈',
-      },
-      bullets: [
         {
           en: 'Developed a PySide6/QML design-time desktop app for virtual workcell configuration with QtQuick3D URDF visualization, joint control, and inverse kinematics',
           ko: 'PySide6/QML 기반 가상 워크셀 구성 데스크톱 애플리케이션 개발 — QtQuick3D URDF 시각화, 관절 제어, 역기구학',
@@ -317,7 +306,7 @@ export const resumeData: ResumeData = {
     },
     {
       name: { en: 'Japanese', ko: '일본어' },
-      level: 'N3',
+      level: 'Level 3',
     },
   ],
   community: [
