@@ -247,6 +247,10 @@ body {
   color: var(--text-muted);
 }
 
+.print-url {
+  display: none;
+}
+
 .contact-block a {
   color: var(--accent);
   text-decoration: none;
@@ -544,6 +548,12 @@ body {
 
   .toolbar {
     display: none;
+  }
+
+  .print-url {
+    display: inline;
+    margin-left: 6px;
+    color: var(--text-muted);
   }
 
   .resume-viewport {

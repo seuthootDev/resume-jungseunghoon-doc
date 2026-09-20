@@ -29,6 +29,8 @@ function Icon({ name }: { name: string }) {
   );
 }
 
+const displayUrl = (href: string) => href.replace(/^https?:\/\//, '').replace(/\/$/, '');
+
 export function Header() {
   const { profile } = resumeData;
   const { lang } = useResumePreferences();
@@ -61,7 +63,10 @@ export function Header() {
           <div className="contact-block">
             <div>
               <Icon name="mail" />
-              <a href={`mailto:${profile.email}`}>Email</a>
+              <a href={`mailto:${profile.email}`} title={profile.email}>
+                Email
+              </a>
+              <span className="print-url">{profile.email}</span>
             </div>
             <div>
               <Icon name="pin" />
@@ -70,9 +75,15 @@ export function Header() {
             {profile.links.map((link) => (
               <div key={link.href}>
                 <Icon name={link.icon} />
-                <a href={link.href} target="_blank" rel="noreferrer">
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  title={displayUrl(link.href)}
+                >
                   {link.label}
                 </a>
+                <span className="print-url">{displayUrl(link.href)}</span>
               </div>
             ))}
           </div>
