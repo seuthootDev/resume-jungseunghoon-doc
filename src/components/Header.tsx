@@ -64,9 +64,9 @@ export function Header() {
             <div>
               <Icon name="mail" />
               <a href={`mailto:${profile.email}`} title={profile.email}>
-                Email
+                <span className="screen-label">Email</span>
+                <span className="print-url">{profile.email}</span>
               </a>
-              <span className="print-url">{profile.email}</span>
             </div>
             <div>
               <Icon name="pin" />
@@ -81,9 +81,9 @@ export function Header() {
                   rel="noreferrer"
                   title={displayUrl(link.href)}
                 >
-                  {link.label}
+                  <span className="screen-label">{link.label}</span>
+                  <span className="print-url">{displayUrl(link.href)}</span>
                 </a>
-                <span className="print-url">{displayUrl(link.href)}</span>
               </div>
             ))}
           </div>

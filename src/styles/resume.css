@@ -550,10 +550,12 @@ body {
     display: none;
   }
 
+  .screen-label {
+    display: none;
+  }
+
   .print-url {
     display: inline;
-    margin-left: 6px;
-    color: var(--text-muted);
   }
 
   .resume-viewport {
