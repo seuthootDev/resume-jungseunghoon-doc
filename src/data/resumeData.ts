@@ -14,14 +14,15 @@ export const resumeData: ResumeData = {
     photo: 'https://github.com/seuthootDev.png?size=160',
     email: 'seuthootdev@gmail.com',
     location: {
-      en: '⌂ Seoul, Republic of Korea',
-      ko: '⌂ 대한민국 서울',
+      en: 'Seoul, Republic of Korea',
+      ko: '대한민국 서울',
     },
     links: [
-      { label: 'my-port-folio-tau-ashy.vercel.app', href: 'https://my-port-folio-tau-ashy.vercel.app/' },
-      { label: 'github.com/seuthootDev', href: 'https://github.com/seuthootDev' },
+      { label: 'Portfolio', icon: 'web', href: 'https://my-port-folio-tau-ashy.vercel.app/' },
+      { label: 'GitHub', icon: 'github', href: 'https://github.com/seuthootDev' },
       {
         label: 'LinkedIn',
+        icon: 'linkedin',
         href: 'https://linkedin.com/in/seunghoon-jung-38b270335',
       },
       // { label: 'Blog', href: 'https://seuthootdev.tistory.com' },

@@ -52,7 +52,7 @@ export interface ResumeData {
     photo: string;
     email: string;
     location: LocalizedText;
-    links: { label: string; href: string }[];
+    links: { label: string; href: string; icon: 'web' | 'github' | 'linkedin' }[];
   };
   sections: {
     experience: LocalizedText;
