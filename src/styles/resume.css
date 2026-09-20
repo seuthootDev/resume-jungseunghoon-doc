@@ -203,7 +203,11 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   gap: 24px;
-  flex-wrap: wrap;
+}
+
+.name-block {
+  flex: 1;
+  min-width: 0;
 }
 
 .name-block h1 {
@@ -230,6 +234,7 @@ body {
 }
 
 .contact-block {
+  flex-shrink: 0;
   text-align: right;
   font-size: 13px;
   color: var(--text-secondary);

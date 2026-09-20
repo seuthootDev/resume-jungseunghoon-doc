@@ -18,6 +18,7 @@ export const resumeData: ResumeData = {
       ko: '⌂ 대한민국 서울',
     },
     links: [
+      { label: 'my-port-folio-tau-ashy.vercel.app', href: 'https://my-port-folio-tau-ashy.vercel.app/' },
       { label: 'github.com/seuthootDev', href: 'https://github.com/seuthootDev' },
       {
         label: 'LinkedIn',
