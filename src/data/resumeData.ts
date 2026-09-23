@@ -329,6 +329,11 @@ export const resumeData: ResumeData = {
       hours: '59 hrs',
     },
   ],
-  // 인쇄(한국어)에만 표시 — 인쇄 버튼에서 입력한 값이 있으면 그 값을 사용
-  desiredSalary: '5,000만원',
+  // 인쇄(한국어)에만 표시 — 인쇄 버튼에서 입력한 값이 있으면 그 값을 사용 (빈 값이면 제외)
+  compensation: {
+    currentSalary: '',
+    bonus: '',
+    benefits: '',
+    desiredSalary: '5,000만원',
+  },
 };

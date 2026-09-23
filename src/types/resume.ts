@@ -44,6 +44,14 @@ export interface CommunityItem {
   hours: LocalizedText | string;
 }
 
+/** 인쇄(한국어)에만 표시되는 연봉 정보 — 빈 값은 인쇄에서 제외 */
+export interface Compensation {
+  currentSalary: string;
+  bonus: string;
+  benefits: string;
+  desiredSalary: string;
+}
+
 export interface ResumeData {
   profile: {
     name: LocalizedText;
@@ -70,5 +78,5 @@ export interface ResumeData {
   credentials: CredentialItem[];
   languages: LanguageItem[];
   community: CommunityItem[];
-  desiredSalary: string;
+  compensation: Compensation;
 }

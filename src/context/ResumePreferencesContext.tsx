@@ -5,7 +5,7 @@ import {
   useState,
   type ReactNode,
 } from 'react';
-import type { Lang, ThemeMode } from '../types/resume';
+import type { Compensation, Lang, ThemeMode } from '../types/resume';
 import { resumeData } from '../data/resumeData';
 
 interface ResumePreferencesContextValue {
@@ -13,20 +13,21 @@ interface ResumePreferencesContextValue {
   mode: ThemeMode;
   setLang: (lang: Lang) => void;
   toggleTheme: () => void;
-  salary: string;
-  setSalary: (salary: string) => void;
+  compensation: Compensation;
+  setCompensation: (compensation: Compensation) => void;
 }
 
 const ResumePreferencesContext =
   createContext<ResumePreferencesContextValue | null>(null);
 
-const SALARY_KEY = 'desiredSalary';
+const COMPENSATION_KEY = 'compensation';
 
-function readSalary(): string {
+function readCompensation(): Compensation {
   try {
-    return localStorage.getItem(SALARY_KEY) ?? resumeData.desiredSalary;
+    const saved = localStorage.getItem(COMPENSATION_KEY);
+    return saved ? { ...resumeData.compensation, ...JSON.parse(saved) } : resumeData.compensation;
   } catch {
-    return resumeData.desiredSalary;
+    return resumeData.compensation;
   }
 }
 
@@ -40,7 +41,7 @@ export function ResumePreferencesProvider({ children }: { children: ReactNode })
   // below) or by middleware.ts geo-detecting a Korean visitor on first load.
   const [lang, setLangState] = useState<Lang>(() => readLangCookie() ?? 'en');
   const [mode, setMode] = useState<ThemeMode>('light');
-  const [salary, setSalaryState] = useState<string>(readSalary);
+  const [compensation, setCompensationState] = useState<Compensation>(readCompensation);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-lang', lang);
@@ -59,11 +60,11 @@ export function ResumePreferencesProvider({ children }: { children: ReactNode })
   };
   const toggleTheme = () =>
     setMode((current) => (current === 'light' ? 'dark' : 'light'));
-  const setSalary = (nextSalary: string) => {
-    setSalaryState(nextSalary);
-    // Remember the last amount so the next print (or a plain Ctrl+P) reuses it.
+  const setCompensation = (nextCompensation: Compensation) => {
+    setCompensationState(nextCompensation);
+    // Remember the last amounts so the next print (or a plain Ctrl+P) reuses them.
     try {
-      localStorage.setItem(SALARY_KEY, nextSalary);
+      localStorage.setItem(COMPENSATION_KEY, JSON.stringify(nextCompensation));
     } catch {
       // Storage unavailable (private mode etc.) — keep it for this session only.
     }
@@ -71,7 +72,14 @@ export function ResumePreferencesProvider({ children }: { children: ReactNode })
 
   return (
     <ResumePreferencesContext.Provider
-      value={{ lang, mode, setLang, toggleTheme, salary, setSalary }}
+      value={{
+        lang,
+        mode,
+        setLang,
+        toggleTheme,
+        compensation,
+        setCompensation,
+      }}
     >
       {children}
     </ResumePreferencesContext.Provider>

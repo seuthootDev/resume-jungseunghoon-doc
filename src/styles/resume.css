@@ -135,6 +135,8 @@ body {
   font-weight: 500;
   cursor: pointer;
   transition: background 0.15s, color 0.15s;
+  /* Hidden from visitors of a shared link, but still clickable in place. */
+  opacity: 0;
 }
 
 .print-button:hover,
