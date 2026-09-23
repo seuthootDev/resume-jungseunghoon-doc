@@ -6,6 +6,7 @@ import { EducationSection } from './EducationSection';
 import { CredentialsSection } from './CredentialsSection';
 import { LanguageSection } from './LanguageSection';
 import { CommunitySection } from './CommunitySection';
+import { SalarySection } from './SalarySection';
 import { useResumeScale } from '../hooks/useResumeScale';
 
 export function ResumePage() {
@@ -25,6 +26,7 @@ export function ResumePage() {
               <CredentialsSection />
               <LanguageSection />
               <CommunitySection />
+              <SalarySection />
             </div>
           </div>
         </div>

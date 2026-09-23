@@ -123,6 +123,21 @@ body {
   flex-shrink: 0;
 }
 
+.print-button {
+  height: 28px;
+  padding: 0 14px;
+  border-radius: 20px;
+  border: 1px solid var(--ctrl-border);
+  background: var(--ctrl-bg);
+  color: var(--ctrl-text);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.print-button:hover,
 .icon-toggle:hover {
   background: var(--ctrl-active-bg);
   color: var(--ctrl-active-text);
@@ -248,6 +263,10 @@ body {
 }
 
 .print-url {
+  display: none;
+}
+
+.print-only {
   display: none;
 }
 
@@ -556,6 +575,10 @@ body {
 
   .print-url {
     display: inline;
+  }
+
+  .print-only {
+    display: block;
   }
 
   .resume-viewport {

@@ -70,4 +70,5 @@ export interface ResumeData {
   credentials: CredentialItem[];
   languages: LanguageItem[];
   community: CommunityItem[];
+  desiredSalary: string;
 }

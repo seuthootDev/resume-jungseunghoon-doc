@@ -6,16 +6,29 @@ import {
   type ReactNode,
 } from 'react';
 import type { Lang, ThemeMode } from '../types/resume';
+import { resumeData } from '../data/resumeData';
 
 interface ResumePreferencesContextValue {
   lang: Lang;
   mode: ThemeMode;
   setLang: (lang: Lang) => void;
   toggleTheme: () => void;
+  salary: string;
+  setSalary: (salary: string) => void;
 }
 
 const ResumePreferencesContext =
   createContext<ResumePreferencesContextValue | null>(null);
+
+const SALARY_KEY = 'desiredSalary';
+
+function readSalary(): string {
+  try {
+    return localStorage.getItem(SALARY_KEY) ?? resumeData.desiredSalary;
+  } catch {
+    return resumeData.desiredSalary;
+  }
+}
 
 function readLangCookie(): Lang | null {
   const match = document.cookie.match(/(?:^|;\s*)lang=(ko|en)/);
@@ -27,6 +40,7 @@ export function ResumePreferencesProvider({ children }: { children: ReactNode })
   // below) or by middleware.ts geo-detecting a Korean visitor on first load.
   const [lang, setLangState] = useState<Lang>(() => readLangCookie() ?? 'en');
   const [mode, setMode] = useState<ThemeMode>('light');
+  const [salary, setSalaryState] = useState<string>(readSalary);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-lang', lang);
@@ -45,10 +59,19 @@ export function ResumePreferencesProvider({ children }: { children: ReactNode })
   };
   const toggleTheme = () =>
     setMode((current) => (current === 'light' ? 'dark' : 'light'));
+  const setSalary = (nextSalary: string) => {
+    setSalaryState(nextSalary);
+    // Remember the last amount so the next print (or a plain Ctrl+P) reuses it.
+    try {
+      localStorage.setItem(SALARY_KEY, nextSalary);
+    } catch {
+      // Storage unavailable (private mode etc.) — keep it for this session only.
+    }
+  };
 
   return (
     <ResumePreferencesContext.Provider
-      value={{ lang, mode, setLang, toggleTheme }}
+      value={{ lang, mode, setLang, toggleTheme, salary, setSalary }}
     >
       {children}
     </ResumePreferencesContext.Provider>
